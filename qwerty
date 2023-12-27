@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Happy Birthday Abhinav! 🎂</title>
+  <style>
+    /* Your CSS styles here */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      z-index: 1;
+    }
+    .birthday-message {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      position: relative;
+      z-index: 2;
+    }
+    .birthday-message.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .surprise {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .button {
+      background-color: #ff7f50;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #ff6347;
+    }
+    /* Confetti animation */
+    .confetti {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .confetti:before {
+      content: " ";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #e74c3c;
+      opacity: 0.7;
+      border-radius: 50%;
+      animation: confetti-fall 4s linear infinite;
+      box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15), -20px -20px 40px rgba(0, 0, 0, 0.15);
+    }
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+    /* Cake animation */
+    .cake {
+      pointer-events: none;
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 150px;
+      background-image: url('https://cdn.pixabay.com/photo/2017/03/19/01/43/birthday-cake-2153808_960_720.png');
+      background-size: cover;
+      animation: cake-cut 5s linear infinite;
+      z-index: 0;
+    }
+    @keyframes cake-cut {
+      0% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      100% {
+        transform: translateX(-50%) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti"></div>
+  <div class="cake"></div>
+
+  <div class="container">
+    <!-- Link to open the surprise -->
+    <a href="#" class="button" id="surpriseLink">🎈 Click here for a surprise, Abhinav! 🎁</a>
+
+    <!-- The surprise message hidden initially -->
+    <div class="birthday-message">
+      <div class="surprise">
+        <h1>🎉 Happy Birthday, Abhinav! 🎂</h1>
+        <p>Wishing you a day filled with joy and laughter.</p>
+        <p>May this year be your best one yet! 🎈🎉</p>
+        <p>From all of us, have an amazing year ahead!</p>
+        <p>Best wishes, Your Friends</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle opening the surprise message
+    const surpriseLink = document.getElementById('surpriseLink');
+    const birthdayMessage = document.querySelector('.birthday-message');
+
+    // Event listener to show the surprise message on link click
+    surpriseLink.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the default link behavior
+      birthdayMessage.classList.add('show'); // Show the birthday message with animation
+      surpriseLink.style.display = 'none'; // Hide the link after clicking
+    });
+  </script>
+</body>
+</html>
